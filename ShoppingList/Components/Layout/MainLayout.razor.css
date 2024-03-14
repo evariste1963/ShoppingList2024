@@ -6,9 +6,13 @@
 
 main {
     flex: 1;
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
     color: #fff;
     height: 100vh;
+    background: linear-gradient(rgb(255, 69, 0), rgb(0, 0, 0));
+    font-family: Ink free, cursive, "Brush Script", "Comic Sans MS", "Comic Sans", sans-serif;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
