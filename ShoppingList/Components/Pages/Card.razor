@@ -1,15 +1,40 @@
 ﻿@page "/card"
+@using ShoppingList.Data
+
+
 
 <div style="width:80%; height:80vh; background-color:#fff; margin: 10px auto; text-align:center; border-radius: 20px; color: #222;  box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.5);">
-	<h1 style="font-size: 2.5rem; opacity: 0.9; margin-top: 1em; padding-bottom: 10px; text-align: center;">
+	<h1 style="font-size: 2.5rem; opacity: 0.9; margin-top: 0.5em; padding: 10px; text-align: center;">
 		Shopping List
 	</h1>
-	<input style="width:60%" />
+	
+	<input type="text" placeholder="what do you need?" @bind="newItem" autofocus style="width:60%; padding: 0.5rem 2rem; outline: 2px ridge rgb(200, 69, 0);border: 0; border-radius: 2rem; font-size: 1.5rem;" />
+	<button @onclick=AddItem>Add Item</button>
+	<ul>
+		@foreach (var item in items)
+		{
+			<li>@item.Item</li>
+		}
+	</ul>
 </div>
 
 
 
 @code
 {
+	List<ShoppingListItem> items = new List<ShoppingListItem>();
+	string newItem;
 
+	void AddItem()
+	{
+		if (string.IsNullOrWhiteSpace(newItem))
+			return;
+
+		items.Add(new ShoppingListItem
+		{
+			Item = newItem
+		});
+
+		newItem = string.Empty;
+	}
 }
