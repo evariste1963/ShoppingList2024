@@ -8,14 +8,12 @@
 		Shopping List
 	</h1>
 	<form @onsubmit=AddItem>
-	<div class="inputField">
-		<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
-		<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
+		<div class="inputField">
+			<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
+			<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
 			<button class="delBtn"><i class="fa fa-times fa-2x"></i></button>
-		
-	</div>
+		</div>
 	</form>
-	<br />
 	<div >
 		<ul class="list">
 			@foreach (var item in items)
@@ -34,7 +32,7 @@
 @code
 {
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
-	string newItem;
+	string? newItem;
 
 	void AddItem()
 	{

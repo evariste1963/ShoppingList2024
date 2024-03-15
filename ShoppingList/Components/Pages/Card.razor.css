@@ -23,12 +23,12 @@
 form{
     width:80%;
     margin: auto;
-
+    padding-bottom: 1rem;
 }
 
 .shoppingCard i {
     margin-left: 10px;
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: orangered;
 }
 
@@ -55,17 +55,17 @@ form{
 
 input[type="text"] {
     text-decoration: none !important;
-    width:60%; 
+    width:95%; 
     padding: 0.5rem 2rem; 
     outline: 2px ridge rgb(200, 69, 0);
     border: 0;
     border-radius: 2rem; 
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .delBtn {
    
-    border: 2px solid #000;
+    border: none;
     background: none;
     color: orangered;
     margin: 0 0.5rem;
@@ -82,15 +82,18 @@ input[type="text"] {
     font-size: 2rem;
     list-style-type: none;
     text-align:left;
+    line-height: 0.5rem;
 }
 
 .itemRow {
     display: flex;
     align-items: center !important;
-    width: 100%;
     text-decoration: none;
+    justify-content:space-between;
   
 }
+
+
 
  
 

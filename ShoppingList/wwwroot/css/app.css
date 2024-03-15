@@ -1,9 +1,20 @@
-﻿html, body {
-    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin:0;
-    padding:0;
-    min-height:100%;
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
 
+body {
+    /*set background gradient to maintain full veiw window*/
+    background: linear-gradient(rgb(255, 69, 0), rgb(0, 0, 0));
+    font-family: Ink free, cursive, "Brush Script", "Comic Sans MS", "Comic Sans", sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 a, .btn-link {
