@@ -38,23 +38,13 @@
     animation: spin 0.5s linear infinite;
 }
 
-#inputField {
+.inputField {
     display: flex;
+    font-size: 5rem;
     text-align: center;
     align-items: center;
     width: 100%;
     
-}
-
-.shopping input {
-    padding-left: 1rem;
-    font-family: inherit;
-    outline: 0;
-    border: 0;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
-    width: 70%;
-    font-size: 2.5rem;
-    text-decoration: none;
 }
 
 input[type="text"] {
@@ -69,17 +59,17 @@ input[type="text"] {
     margin: 0 0.5rem;
     padding: 0;
     align-items: center;
-    
     vertical-align: middle;
 }
 
 
 
-#list {
-    margin-left: 3rem;
-    margin-right: auto;
-    margin-top: 10px;
-    font-size: 1.8rem;
+.list {
+    width: 80%;
+    margin: 10px auto;
+    font-size: 2rem;
+    list-style-type: none;
+    text-align:left;
 }
 
 @keyframes spin {
