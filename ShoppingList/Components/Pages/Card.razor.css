@@ -1,0 +1,93 @@
+﻿
+
+.shoppingCard {
+    margin: auto auto 0 auto;
+    width: 90%;
+    min-height: 80vh;
+    background-color: #fff;
+    text-align: center;
+    padding: 0;
+    border-radius: 20px;
+    color: #222;
+    box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+
+.shoppingCard h1 {
+    font-size: 2.5rem;
+    opacity: 0.9;
+   padding-bottom: 2rem 0;
+    text-align: center;
+}
+
+.shoppingCard i {
+    margin-left: 10px;
+    font-size: 1.6rem;
+    color: orangered;
+}
+
+#quill {
+    color: orangered;
+    height: 80%;
+    margin-right: 0.5rem;
+    transform: rotateY(180deg);
+    vertical-align: middle;
+}
+
+.spin {
+    animation: spin 0.5s linear infinite;
+}
+
+#inputField {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.shopping input {
+    padding-left: 1rem;
+    font-family: inherit;
+    outline: 0;
+    border: 0;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    width: 70%;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+input[type="text"] {
+    text-decoration: none !important;
+}
+
+#delBtn {
+   
+    border: 0;
+    background: none;
+    color: orangered;
+    margin: 0 0.5rem;
+    padding: 0;
+    align-items: center;
+    
+    vertical-align: middle;
+}
+
+
+
+#list {
+    margin-left: 3rem;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
