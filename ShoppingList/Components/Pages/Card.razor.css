@@ -1,6 +1,4 @@
-﻿
-
-.shoppingCard {
+﻿.shoppingCard {
     margin: auto auto 0 auto;
     width: 90%;
     min-height: 80vh;
@@ -11,9 +9,23 @@
     color: #222;
     box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.5);
 }
+.headerInfo {
+    display: flex;
+    align-items:baseline;
+    justify-content: center;
+    margin: 0 auto;
+    width:100%;
+}
 
 
-.shoppingCard h1 {
+.countItems{
+    margin-left:2rem;
+    text-align:right;
+    color:rgba(0, 0, 0, 0.9)
+}
+
+
+.shoppingCard .headerInfo h1 {
     font-size: 2.5rem;
     opacity: 0.9;
     padding: 0.75rem 0;

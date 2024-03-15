@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using ShoppingList.Data;
 
 namespace ShoppingList
 {
@@ -20,7 +21,7 @@ namespace ShoppingList
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<ShoppingListService>();
             return builder.Build();
         }
     }

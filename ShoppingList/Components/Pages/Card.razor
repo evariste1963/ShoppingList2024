@@ -1,12 +1,14 @@
 ﻿@page "/card"
 @using ShoppingList.Data
-
-
+@inject ShoppingListService ShoppingListService
 
 <div class="shoppingCard" >
-	<h1>
-		Shopping List
+	<div class="headerInfo">
+	<h1 >
+		Shopping List 
 	</h1>
+	<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
+	</div>
 	<form @onsubmit=AddItem>
 		<div class="inputField">
 			<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
@@ -38,6 +40,14 @@
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
 
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		var itemList = ShoppingListService.LoadItems();
+
+		items.AddRange(itemList);
+	}
+
 	void AddItem()
 	{
 		if (string.IsNullOrWhiteSpace(newItem))
@@ -48,6 +58,7 @@
 			Item = newItem
 		});
 
+		ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
 	}
 }
