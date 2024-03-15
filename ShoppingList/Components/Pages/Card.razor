@@ -10,8 +10,8 @@
 	<form @onsubmit=AddItem>
 	<div class="inputField">
 		<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
-		<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus style="width:60%; padding: 0.5rem 2rem; outline: 2px ridge rgb(200, 69, 0);border: 0; border-radius: 2rem; font-size: 1rem;" />
-			<button id="delBtn"><i class="fa fa-times fa-2x"></i></button>
+		<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
+			<button class="delBtn"><i class="fa fa-times fa-2x"></i></button>
 		
 	</div>
 	</form>
@@ -20,7 +20,10 @@
 		<ul class="list">
 			@foreach (var item in items)
 			{
-				<li>@item.Item</li>
+				<li class="itemRow">
+					<p class="item">@item.Item</p>
+					<p class="del"><button class="delBtn"><i class="fa fa-times fa-2x"></i></button></p>
+				</li>
 			}
 		</ul
 	</div>

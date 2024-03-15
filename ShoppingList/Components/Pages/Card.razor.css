@@ -16,8 +16,14 @@
 .shoppingCard h1 {
     font-size: 2.5rem;
     opacity: 0.9;
-   padding-bottom: 2rem 0;
+    padding: 0.75rem 0;
     text-align: center;
+}
+
+form{
+    width:80%;
+    margin: auto;
+
 }
 
 .shoppingCard i {
@@ -40,28 +46,34 @@
 
 .inputField {
     display: flex;
-    font-size: 5rem;
     text-align: center;
     align-items: center;
     width: 100%;
-    
+    justify-content: center;
+    text-decoration: none;
 }
 
 input[type="text"] {
     text-decoration: none !important;
+    width:60%; 
+    padding: 0.5rem 2rem; 
+    outline: 2px ridge rgb(200, 69, 0);
+    border: 0;
+    border-radius: 2rem; 
+    font-size: 1rem;
 }
 
-#delBtn {
+.delBtn {
    
-    border: 0;
+    border: 2px solid #000;
     background: none;
     color: orangered;
     margin: 0 0.5rem;
     padding: 0;
     align-items: center;
     vertical-align: middle;
-}
 
+}
 
 
 .list {
@@ -71,6 +83,16 @@ input[type="text"] {
     list-style-type: none;
     text-align:left;
 }
+
+.itemRow {
+    display: flex;
+    align-items: center !important;
+    width: 100%;
+    text-decoration: none;
+  
+}
+
+ 
 
 @keyframes spin {
     from {
