@@ -19,8 +19,12 @@
 			@foreach (var item in items)
 			{
 				<li class="itemRow">
-					<p class="item">@item.Item</p>
-					<p class="del"><button class="delBtn"><i class="fa fa-times fa-2x"></i></button></p>
+					<div class="itemDetail">
+					<p class="rowChechBox"><input type="checkbox" @bind="item.IsDone" /></p>
+					<p class="rowItem"><input @bind="item.Item" class="item" /></p>
+					</div>
+					<p class="rowDel"><button class="delBtn"><i class="fa fa-times fa-2x"></i></button></p>
+					
 				</li>
 			}
 		</ul

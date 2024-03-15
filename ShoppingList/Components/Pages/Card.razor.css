@@ -60,7 +60,7 @@ input[type="text"] {
     outline: 2px ridge rgb(200, 69, 0);
     border: 0;
     border-radius: 2rem; 
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .delBtn {
@@ -81,7 +81,7 @@ input[type="text"] {
     margin: 10px auto;
     font-size: 2rem;
     list-style-type: none;
-    text-align:left;
+    text-align: left;
     line-height: 0.5rem;
 }
 
@@ -89,8 +89,37 @@ input[type="text"] {
     display: flex;
     align-items: center !important;
     text-decoration: none;
-    justify-content:space-between;
-  
+    border: none;
+    width: 100%;
+
+}
+
+
+.rowItem {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.itemDetail {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: none;
+    margin-right: 1rem;
+    
+}
+
+.item {
+    width: 100%;
+    border:none;
+    margin-right: 1rem;
+}
+
+.del {
+    
+    justify-content:right;
+    text-align:right;
 }
 
 
