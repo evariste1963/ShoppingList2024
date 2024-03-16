@@ -139,6 +139,12 @@ input[type="text"] {
     outline: none;
 }
 
+.item-done {
+    text-decoration: line-through 3px orangered;
+    color:#808080;
+    
+}
+
 .form-check-input {
     border-color: orangered;
 }

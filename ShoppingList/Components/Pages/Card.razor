@@ -23,9 +23,9 @@
 				<li class="itemRow">
 					<div class="itemDetail">
 					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"  @bind="item.IsDone" /></p>
-					<p class="rowItem"><input @bind="item.Item"  class="item" /></p>
+					<p class="rowItem @ItemDone(item)"><input @bind="item.Item"  class="item @ItemDone(item)" /></p>
 					</div>
-					<p class="rowDel"><button class="delBtn" @onclick="DeleteItems"><i class="fa fa-times fa-2x"></i></button></p>
+					<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x"></i></button></p>
 					
 				</li>
 			}
@@ -64,6 +64,25 @@
 		newItem = string.Empty;
 	}
 
+	public void DeleteItem(ShoppingListItem item)
+	{
+		IEnumerable<ShoppingListItem> itemToDelete = new List<ShoppingListItem>();
+		if (!item.IsDone) return;
+
+			itemToDelete = items.Where(i => i.Item != item.Item);
+			ShoppingListService.SaveItems(itemToDelete);
+			items = new List<ShoppingListItem>();
+			OnInitialized();
+			// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
+		
+	}
+
+public void ItemsChanged()
+{
+    items = ShoppingListService.LoadItems().ToList();
+    OnInitialized();
+}
+
 	void  DeleteItems()
 	{
 		IEnumerable<ShoppingListItem> itemsToDelete = new List<ShoppingListItem>();
@@ -74,6 +93,9 @@
 
 	}
 
-	
+	public string ItemDone(ShoppingListItem item)
+{
+    return item.IsDone ? "item-done":"  ";
+}
 
 }
