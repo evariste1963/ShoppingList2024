@@ -18,12 +18,12 @@
 	</form>
 	<div >
 		<ul class="list">
-			@foreach (var item in items)
+			@foreach (ShoppingListItem item in items)
 			{
 				<li class="itemRow">
 					<div class="itemDetail">
-					<p class="rowChechBox"><input type="checkbox" @bind="item.IsDone" /></p>
-					<p class="rowItem"><input @bind="item.Item" class="item" /></p>
+					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"   @bind="item.IsDone" /></p>
+					<p class="rowItem"><input @bind="item.Item"  class="item" /></p>
 					</div>
 					<p class="rowDel"><button class="delBtn"><i class="fa fa-times fa-2x"></i></button></p>
 					
@@ -61,4 +61,7 @@
 		ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
 	}
+
+	
+	
 }
