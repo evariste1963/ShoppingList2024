@@ -11,9 +11,9 @@
 	</div>
 	<form @onsubmit=AddItem>
 		<div class="inputField">
-			<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
+			@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
 			<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
-			<button class="delBtn" @onclick="DeleteItems"><i class="fa fa-times fa-2x"></i></button>
+			<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt"></i></button>
 		</div>
 	</form>
 	<div >
@@ -22,7 +22,7 @@
 			{
 				<li class="itemRow">
 					<div class="itemDetail">
-					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"   @bind="item.IsDone" /></p>
+					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"  @bind="item.IsDone" /></p>
 					<p class="rowItem"><input @bind="item.Item"  class="item" /></p>
 					</div>
 					<p class="rowDel"><button class="delBtn" @onclick="DeleteItems"><i class="fa fa-times fa-2x"></i></button></p>
@@ -40,6 +40,7 @@
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
 
+
 	protected override void OnInitialized()
 	{
 		base.OnInitialized();
@@ -50,6 +51,7 @@
 
 	void AddItem()
 	{
+
 		if (string.IsNullOrWhiteSpace(newItem))
 			return;
 

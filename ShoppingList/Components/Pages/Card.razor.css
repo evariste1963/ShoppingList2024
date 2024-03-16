@@ -42,7 +42,7 @@ form{
     color: orangered;
 }
 
-#quill {
+/*#quill {
     color: orangered;
     height: 80%;
     margin-right: 0.5rem;
@@ -52,13 +52,14 @@ form{
 
 .spin {
     animation: spin 0.5s linear infinite;
-}
+}*/
 
 .inputField {
     display: flex;
     text-align: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     justify-content: center;
     text-decoration: none;
 }
@@ -74,7 +75,6 @@ input[type="text"] {
 }
 
 .delBtn {
-   
     border: none;
     background: none;
     color: orangered;
@@ -82,8 +82,10 @@ input[type="text"] {
     padding: 0;
     align-items: center;
     vertical-align: middle;
-
+    
 }
+
+
 
 
 .list {
@@ -113,6 +115,8 @@ input[type="text"] {
     margin-right: 1rem;
     /*border: 2px solid #000*/
 }
+
+
 
 .itemDetail {
     display: flex;
@@ -154,7 +158,7 @@ input[type="text"] {
 
 
 
-@keyframes spin {
+/*@keyframes spin {
     from {
         transform: rotateY(0);
     }
@@ -162,4 +166,4 @@ input[type="text"] {
     to {
         transform: rotateY(360deg);
     }
-}
+}*/
