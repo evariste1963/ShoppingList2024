@@ -13,7 +13,7 @@
 		<div class="inputField">
 			<i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i>
 			<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
-			<button class="delBtn"><i class="fa fa-times fa-2x"></i></button>
+			<button class="delBtn" @onclick="DeleteItems"><i class="fa fa-times fa-2x"></i></button>
 		</div>
 	</form>
 	<div >
@@ -25,7 +25,7 @@
 					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"   @bind="item.IsDone" /></p>
 					<p class="rowItem"><input @bind="item.Item"  class="item" /></p>
 					</div>
-					<p class="rowDel"><button class="delBtn"><i class="fa fa-times fa-2x"></i></button></p>
+					<p class="rowDel"><button class="delBtn" @onclick="DeleteItems"><i class="fa fa-times fa-2x"></i></button></p>
 					
 				</li>
 			}
@@ -62,6 +62,16 @@
 		newItem = string.Empty;
 	}
 
+	void  DeleteItems()
+	{
+		IEnumerable<ShoppingListItem> itemsToDelete = new List<ShoppingListItem>();
+		itemsToDelete =  items.Where(i => !i.IsDone);
+		ShoppingListService.SaveItems(itemsToDelete);
+		items = new List<ShoppingListItem>();
+		OnInitialized();
+
+	}
+
 	
-	
+
 }
