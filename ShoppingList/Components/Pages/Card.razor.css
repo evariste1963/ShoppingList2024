@@ -74,15 +74,15 @@ input[type="text"] {
     font-size: 1rem;
 }
 
-.delBtn {
+.delBtn, .editBtn {
     border: none;
     background: none;
     color: orangered;
-    margin: 0 0.5rem;
+    margin: 0 0.2rem;
     padding: 0;
     align-items: center;
     vertical-align: middle;
-    
+ 
 }
 
 

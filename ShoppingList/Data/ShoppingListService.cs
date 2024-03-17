@@ -13,7 +13,7 @@ namespace ShoppingList.Data
 
         }
 
-        public void SaveItems(IEnumerable<ShoppingListItem> shoppingListItems)
+        public async Task SaveItems(IEnumerable<ShoppingListItem> shoppingListItems)
         {
             File.WriteAllText(file, JsonSerializer.Serialize(shoppingListItems));
         }

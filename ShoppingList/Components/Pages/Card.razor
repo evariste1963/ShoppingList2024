@@ -23,8 +23,9 @@
 				<li class="itemRow">
 					<div class="itemDetail">
 					<p class="rowCheckBox"><input type="checkbox" class="form-check-input"  @bind="item.IsDone" /></p>
-					<p class="rowItem @ItemDone(item)"><input @bind="item.Item"  class="item @ItemDone(item)" /></p>
+					<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)"></input></p>
 					</div>
+					<p class="rowEdit"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fas fa-save"></i></button></p>
 					<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x"></i></button></p>
 					
 				</li>
@@ -49,7 +50,7 @@
 		items.AddRange(itemList);
 	}
 
-	void AddItem()
+	async void AddItem()
 	{
 
 		if (string.IsNullOrWhiteSpace(newItem))
@@ -60,18 +61,28 @@
 			Item = newItem
 		});
 
-		ShoppingListService.SaveItems(items);
+		await ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
 	}
 
-	public void DeleteItem(ShoppingListItem item)
+	async Task EditItem(ShoppingListItem item)
+	{
+
+		await ShoppingListService.SaveItems(items);
+		newItem = string.Empty;
+		await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
+	}
+
+
+	public async void DeleteItem(ShoppingListItem item)
 	{
 		IEnumerable<ShoppingListItem> itemToDelete = new List<ShoppingListItem>();
 		if (!item.IsDone) return;
 
 			itemToDelete = items.Where(i => i.Item != item.Item);
-			ShoppingListService.SaveItems(itemToDelete);
+			await ShoppingListService.SaveItems(itemToDelete);
 			items = new List<ShoppingListItem>();
+			// StateHasChanged();
 			OnInitialized();
 			// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
 		
