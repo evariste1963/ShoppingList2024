@@ -13,6 +13,7 @@ body {
     /*font-family: Roboto Flex, "Comic Sans", "Comic Sans MS",sans-serif, Ink free, cursive, "Brush Script";*/
     height: 100vh;
     margin: 0;
+    padding: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
