@@ -4,18 +4,21 @@
 
 <div class="shoppingCard" >
 	<div class="headerInfo">
-	<h1 >
+	<h1 class="title">
 		Shopping List 
 	</h1>
 	<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
 	</div>
+	
 	<form @onsubmit=AddItem>
-		<div class="inputField">
+			<div class="inputField">
 			@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
 			<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
 			<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt"></i></button>
 		</div>
 	</form>
+	
+	@* <p class="selectAllRow"><input  type="checkbox" class="form-check-input selectAllCheckbox">Select All</p> *@
 	<div >
 		<ul class="list">
 			@foreach (ShoppingListItem item in items)
@@ -30,8 +33,9 @@
 					
 				</li>
 			}
-		</ul
+		</ul>
 	</div>
+	
 </div>
 
 
