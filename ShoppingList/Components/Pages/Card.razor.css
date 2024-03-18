@@ -14,15 +14,17 @@
     align-items: baseline;
     justify-content: center;
     width: 100%;
+    /*margin-bottom:12px;*/
  }
 
 .title{
+    font-size:2rem;
     padding:0;
     margin:0;
 }
 
 .countItems{
-    margin-left:2rem;
+    margin-left:12px;
     text-align:right;
     color:rgba(0, 0, 0, 0.9);
     font-size: 1rem
@@ -38,25 +40,34 @@
 .dynDetails {
     padding: 0;
     margin: 0 auto;
-    width: 95%;
-    font-size: 1.25rem;
+    width: 100%;
+    font-size: 24px;
     /*border: 1px solid #000;*/
     align-items:center;
     
 }
-
+.selectandcountRow {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-items: center;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
 .selectAllRow {
     text-align: left;
     display: flex;
-    margin: 0 auto;
+    
     align-items: center;
-    width: 95%;    
-   
+    
+    border: 1px solid #000;
+    
 }
 
 .itemRow {
     display: flex;
     align-items: center;
+    
     text-decoration: none;
     border: none;
     width: 95%;
@@ -71,14 +82,15 @@
     width: 100%;
     border: none;
     padding: 0;
-    margin: 0 0.5rem 0;
+    margin: 0;
+    /*border: 1px solid #000*/
 }
 
 
 .selectAllRowCheckbox {
     text-align: left;
-    font-size: 1.25rem;
-    /*border: 1px solid #000*/
+    font-size: 24px;
+    border: 1px solid #000
 }
 
 .rowCheckBox {
@@ -88,9 +100,9 @@
     }
 
 .selectAllRowText {
-    font-size: 0.75rem;
+    font-size: 16px;
     margin-left: 5px;
-    /*border: 1px solid #000*/
+    border: 1px solid #000
 }
 
 
@@ -110,7 +122,7 @@ form {
     display: flex;
     text-align: center;
     align-items: center;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     justify-content: center;
     text-decoration: none;
@@ -123,7 +135,7 @@ input[type="text"] {
     outline: 2px ridge rgb(200, 69, 0);
     border: 0;
     border-radius: 2rem; 
-    font-size: 1rem;
+    font-size: 24px;
 }
 
 ::placeholder{
@@ -148,11 +160,12 @@ input[type="text"] {
 .list {
     width: 100%;
     margin: auto;
-    font-size: 1.25rem;
+    font-size: 24px;
     list-style-type: none;
     text-align: left;
     justify-content: left;
     padding: 0;
+
 }
 
 

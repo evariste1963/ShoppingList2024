@@ -7,20 +7,24 @@
 		<h1 class="title">
 			Shopping List
 		</h1>
-		<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
+
 	</div>
 	<div>
 		<form @onsubmit=AddItem>
 			<div class="inputField">
 				@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
 				<input type="text" placeholder="what do you need?" @bind="newItem" autofocus />
-				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:1.5rem;"></i></button>
+				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:2rem;"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
-			<div class="selectAllRow">
+			<div class="selectandcountRow">
+				<div class="selectAllRow">
 				<p class="selectAllRowCheckbox"><input type="checkbox" class="form-check-input " /></p>
 				<p class="selectAllRowText">Select All</p>
+				</div>
+					<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
+				
 			</div>
 			<ul class="list">
 				@foreach (ShoppingListItem item in items)
@@ -30,8 +34,8 @@
 							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" style="margin:cent;" @bind="item.IsDone" /></p>
 							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
 						</div>
-						<p><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:1.5rem;"></i></button></p>
-						<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:1.5rem;"></i></button></p>
+						<p><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:2rem;"></i></button></p>
+						<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:2rem;"></i></button></p>
 
 					</li>
 				}
