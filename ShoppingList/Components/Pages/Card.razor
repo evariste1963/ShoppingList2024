@@ -20,7 +20,7 @@
 		<div class="dynDetails">
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
-						<p class="selectAllRowCheckbox"><input type="checkbox" class="form-check-input " /></p>
+					<p class="selectAllRowCheckbox"><input type="checkbox" checked="isAllDone" @onchange="IsAllDone" class="form-check-input" /></p>
 						<p class="selectAllRowText">Select All</p>
 					</div>
 					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
@@ -30,7 +30,7 @@
 				{
 					<li class="itemRow">
 						<div class="itemDetail">
-							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" style="margin:cent;" @bind="item.IsDone" /></p>
+							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" @bind="item.IsDone" /></p>
 							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
 						</div>
 						<div class="editAndDelBtns">
@@ -50,6 +50,24 @@
 {
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
+	bool isAllDone;
+
+	public void IsAllDone()
+	{
+
+		foreach (ShoppingListItem item in items)
+		{
+			if(!item.IsDone)
+			{
+				item.IsDone = true;
+			}
+			else
+			{
+				item.IsDone = false;
+			}
+			}
+		
+	}
 
 
 	protected override void OnInitialized()
