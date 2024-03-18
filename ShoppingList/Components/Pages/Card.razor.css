@@ -46,22 +46,25 @@
     align-items:center;
     
 }
-.selectandcountRow {
+.selectAndCountRow {
     display: flex;
     justify-content: space-between;
     width: 95%;
     align-items: center;
     margin: 0 auto;
-    border: 1px solid #000;
+    padding-bottom: 12px;
+    /*border: 1px solid #000;*/
 }
 .selectAllRow {
     text-align: left;
     display: flex;
-    
     align-items: center;
+    /*border: 1px solid #000;*/
     
-    border: 1px solid #000;
-    
+}
+.countItems {
+    /*border: 1px solid #000;*/
+    margin:auto 0;
 }
 
 .itemRow {
@@ -90,19 +93,23 @@
 .selectAllRowCheckbox {
     text-align: left;
     font-size: 24px;
-    border: 1px solid #000
+    /*border: 1px solid #000;*/
+    margin:auto 0;
 }
 
 .rowCheckBox {
     /*border: 1px solid #000;*/
     align-items: center;
+    margin:auto 0;
     padding: 0;
     }
 
 .selectAllRowText {
     font-size: 16px;
+    
+    /*border: 1px solid #000;*/
+    margin:auto;
     margin-left: 5px;
-    border: 1px solid #000
 }
 
 
@@ -140,21 +147,36 @@ input[type="text"] {
 
 ::placeholder{
     font-style: italic;
+    font-size:16px;
 }
+
+
+
+.editAndDelBtns {
+    display: flex;
+    
+    /*border: 1px solid #000*/
+}
+
 
 .delBtn, .editBtn {
     border: none;
     background: none;
     color: orangered;
-    margin: 0;
+    margin: auto 0;
     padding: 0;
     align-items: center;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     /*border: 1px solid #000*/
 }
 
-.editBtn{
-    margin-right:0.5rem;
+.editBtn {
+    margin-right: 0.5rem;
+}
+
+
+.rowDel{
+    margin: auto 0;
 }
 
 .list {
@@ -165,15 +187,14 @@ input[type="text"] {
     text-align: left;
     justify-content: left;
     padding: 0;
-
 }
 
 
 
 .rowItem {
     width: 100%;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin:auto  1rem;
+    
     padding: 0;
     /*border: 1px solid #000*/
 }

@@ -18,14 +18,13 @@
 			</div>
 		</form>
 		<div class="dynDetails">
-			<div class="selectandcountRow">
-				<div class="selectAllRow">
-				<p class="selectAllRowCheckbox"><input type="checkbox" class="form-check-input " /></p>
-				<p class="selectAllRowText">Select All</p>
+				<div class="selectAndCountRow">
+					<div class="selectAllRow">
+						<p class="selectAllRowCheckbox"><input type="checkbox" class="form-check-input " /></p>
+						<p class="selectAllRowText">Select All</p>
+					</div>
+					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
 				</div>
-					<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
-				
-			</div>
 			<ul class="list">
 				@foreach (ShoppingListItem item in items)
 				{
@@ -34,9 +33,10 @@
 							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" style="margin:cent;" @bind="item.IsDone" /></p>
 							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
 						</div>
-						<p><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:2rem;"></i></button></p>
-						<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:2rem;"></i></button></p>
-
+						<div class="editAndDelBtns">
+							<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
+						<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:24px;"></i></button></p>
+						</div>
 					</li>
 				}
 			</ul>
