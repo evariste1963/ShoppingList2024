@@ -12,7 +12,6 @@
 	<div>
 		<form @onsubmit=AddItem>
 			<div class="inputField">
-				@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
 				<input type="text" placeholder="what do you need?" @bind="newItem" autofocus />
 				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:2rem;"></i></button>
 			</div>
@@ -23,6 +22,7 @@
 					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
 						<p class="selectAllRowText">Select All</p>
 					</div>
+
 					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
 				</div>
 			<ul class="list">
@@ -52,9 +52,8 @@
 	string? newItem;
 	bool isAllDone;
 
-	public void IsAllDone()
+	public async void IsAllDone()
 	{
-
 		foreach (ShoppingListItem item in items)
 		{
 			if(!isAllDone)
@@ -65,8 +64,8 @@
 			{
 				item.IsDone = false;
 			}
-			}
-		
+		}		
+	  await ShoppingListService.SaveItems(items);
 	}
 
 
@@ -132,9 +131,12 @@
 
 	}
 
+
+	//TODO : save IsDone State -- to persost state on app close/open
 	public string ItemDone(ShoppingListItem item)
 	{
 		return item.IsDone ? "item-done" : "  ";
+		
 	}
 
 

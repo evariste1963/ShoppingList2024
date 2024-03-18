@@ -8,8 +8,8 @@ main {
     flex: 1;
     color: #fff;
     height: 100vh;
-    background: linear-gradient(rgb(255, 69, 0), rgb(0, 0, 0));
-    font-family: Roboto Flex, "Comic Sans", "Comic Sans MS",sans-serif, Ink free, cursive, "Brush Script";
+    background: linear-gradient(var(--bg-topcolor), rgb(0, 0, 0));
+    /*font-family: Roboto Flex, "Comic Sans", "Comic Sans MS",sans-serif, Ink free, cursive, "Brush Script";*/
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;

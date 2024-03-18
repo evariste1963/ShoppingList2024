@@ -17,17 +17,19 @@
     /*margin-bottom:12px;*/
  }
 
-.title{
-    font-size:2rem;
+.title {
+    font-size: 2rem;
+    color: var(--primary-fontcolor);
     padding:0;
-    margin:0;
+    margin: 0;
 }
 
-.countItems{
-    margin-left:12px;
-    text-align:right;
-    color:rgba(0, 0, 0, 0.9);
-    font-size: 1rem
+.countItems {
+    margin: auto 0;
+    text-align: right;
+    
+    font-size: var(--secondary-fontsize);
+    
 }
 
 
@@ -41,10 +43,9 @@
     padding: 0;
     margin: 0 auto;
     width: 100%;
-    font-size: 24px;
+    font-size: var(--primary-fontsize);
     /*border: 1px solid #000;*/
-    align-items:center;
-    
+    align-items: center;
 }
 .selectAndCountRow {
     display: flex;
@@ -52,6 +53,7 @@
     width: 95%;
     align-items: center;
     margin: 0 auto;
+    color: var(--secondary-fontcolor);
     padding-bottom: 12px;
     /*border: 1px solid #000;*/
 }
@@ -62,10 +64,7 @@
     /*border: 1px solid #000;*/
     
 }
-.countItems {
-    /*border: 1px solid #000;*/
-    margin:auto 0;
-}
+
 
 .itemRow {
     display: flex;
@@ -92,9 +91,10 @@
 
 .selectAllRowCheckbox {
     text-align: left;
-    font-size: 24px;
+    font-size: var(--primary-fontsize);
+    
     /*border: 1px solid #000;*/
-    margin:auto 0;
+    margin: auto 0;
 }
 
 .rowCheckBox {
@@ -105,10 +105,10 @@
     }
 
 .selectAllRowText {
-    font-size: 16px;
+    font-size: var(--secondary-fontsize);
     
     /*border: 1px solid #000;*/
-    margin:auto;
+    margin: auto;
     margin-left: 5px;
 }
 
@@ -131,23 +131,24 @@ form {
     align-items: center;
     width: 95%;
     margin: 0 auto;
-    justify-content: center;
     text-decoration: none;
 }
 
+
 input[type="text"] {
     text-decoration: none !important;
-    width:95%; 
-    padding: 0.5rem 2rem; 
+    width: 95%;
+    padding: 0.5rem 2rem;
     outline: 2px ridge rgb(200, 69, 0);
     border: 0;
-    border-radius: 2rem; 
-    font-size: 24px;
+    border-radius: 2rem;
+    font-size: var(--primary-fontsize);
+    
 }
 
-::placeholder{
+::placeholder {
     font-style: italic;
-    font-size:16px;
+    font-size: var(--secondary-fontsize);
 }
 
 
@@ -182,7 +183,7 @@ input[type="text"] {
 .list {
     width: 100%;
     margin: auto;
-    font-size: 24px;
+    font-size: var(--primary-fontsize);
     list-style-type: none;
     text-align: left;
     justify-content: left;
