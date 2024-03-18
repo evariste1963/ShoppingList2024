@@ -2,41 +2,41 @@
 @using ShoppingList.Data
 @inject ShoppingListService ShoppingListService
 
-<div class="shoppingCard" >
+<div class="shoppingCard">
 	<div class="headerInfo">
-	<h1 class="title">
-		Shopping List 
-	</h1>
-	<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
+		<h1 class="title">
+			Shopping List
+		</h1>
+		<h4 class="countItems">(@items.Count(item => !item.IsDone) items)</h4>
 	</div>
 	<div>
-	<form @onsubmit=AddItem>
+		<form @onsubmit=AddItem>
 			<div class="inputField">
-			@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
-			<input type="text" placeholder="what do you need?"  @bind="newItem" autofocus  />
+				@* <i id="quill" class="fa-solid fa-feather-pointed fa-2x"></i> *@
+				<input type="text" placeholder="what do you need?" @bind="newItem" autofocus />
 				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:1.5rem;"></i></button>
-		</div>
-	</form>
+			</div>
+		</form>
 		<div class="dynDetails">
 			<div class="selectAllRow">
 				<p class="selectAllRowCheckbox"><input type="checkbox" class="form-check-input " /></p>
 				<p class="selectAllRowText">Select All</p>
 			</div>
 			<ul class="list">
-			@foreach (ShoppingListItem item in items)
-			{
-				<li class="itemRow">
-					<div class="itemDetail">
-						<p class="rowCheckBox"><input type="checkbox" class="form-check-input" style="margin:cent;" @bind="item.IsDone" /></p>
-						<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
-					</div>
+				@foreach (ShoppingListItem item in items)
+				{
+					<li class="itemRow">
+						<div class="itemDetail">
+							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" style="margin:cent;" @bind="item.IsDone" /></p>
+							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
+						</div>
 						<p><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:1.5rem;"></i></button></p>
 						<p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:1.5rem;"></i></button></p>
-					
-				</li>
-			}
-		</ul>
-	</div>
+
+					</li>
+				}
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -63,9 +63,9 @@
 			return;
 
 		items.Add(new ShoppingListItem
-		{
-			Item = newItem
-		});
+			{
+				Item = newItem
+			});
 
 		await ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
@@ -85,25 +85,25 @@
 		IEnumerable<ShoppingListItem> itemToDelete = new List<ShoppingListItem>();
 		if (!item.IsDone) return;
 
-			itemToDelete = items.Where(i => i.Item != item.Item);
-			await ShoppingListService.SaveItems(itemToDelete);
-			items = new List<ShoppingListItem>();
-			// StateHasChanged();
-			OnInitialized();
-			// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
-		
+		itemToDelete = items.Where(i => i.Item != item.Item);
+		await ShoppingListService.SaveItems(itemToDelete);
+		items = new List<ShoppingListItem>();
+		// StateHasChanged();
+		OnInitialized();
+		// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
+
 	}
 
-public void ItemsChanged()
-{
-    items = ShoppingListService.LoadItems().ToList();
-    OnInitialized();
-}
+	public void ItemsChanged()
+	{
+		items = ShoppingListService.LoadItems().ToList();
+		OnInitialized();
+	}
 
-	void  DeleteItems()
+	void DeleteItems()
 	{
 		IEnumerable<ShoppingListItem> itemsToDelete = new List<ShoppingListItem>();
-		itemsToDelete =  items.Where(i => !i.IsDone);
+		itemsToDelete = items.Where(i => !i.IsDone);
 		ShoppingListService.SaveItems(itemsToDelete);
 		items = new List<ShoppingListItem>();
 		OnInitialized();
@@ -111,8 +111,27 @@ public void ItemsChanged()
 	}
 
 	public string ItemDone(ShoppingListItem item)
-{
-    return item.IsDone ? "item-done":"  ";
-}
+	{
+		return item.IsDone ? "item-done" : "  ";
+	}
+
+
+
+	/// <summary>
+	/// TODOs list for App
+	/// </summary>
+	///
+
+	// TODO: Colours: app colour scheme selector
+	// 				// global varibles and dynamic css classes
+	//  TODO: Check recommended interactive  mobile app font sizes
+	// 				// global variables to main font size
+	//  TODO: code for select all checkbox
+	//  TODO: Cursor focus App start and after enter
+	// TODO: App ICON
+	// TODO: only update if row text has changed
+
+
+
 
 }
