@@ -20,7 +20,7 @@
 		<div class="dynDetails">
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
-					<p class="selectAllRowCheckbox"><input type="checkbox" checked="isAllDone" @onchange="IsAllDone" class="form-check-input" /></p>
+					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
 						<p class="selectAllRowText">Select All</p>
 					</div>
 					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
@@ -57,7 +57,7 @@
 
 		foreach (ShoppingListItem item in items)
 		{
-			if(!item.IsDone)
+			if(!isAllDone)
 			{
 				item.IsDone = true;
 			}
@@ -146,9 +146,9 @@
 
 	// TODO: Colours: app colour scheme selector
 	// 				// global varibles and dynamic css classes
-	//  TODO: Check recommended interactive  mobile app font sizes
+	
 	// 				// global variables to main font size
-	//  TODO: code for select all checkbox
+	
 	//  TODO: Cursor focus App start and after enter
 	// TODO: App ICON
 	// TODO: only update if row text has changed
