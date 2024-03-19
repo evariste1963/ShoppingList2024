@@ -127,6 +127,7 @@
 		itemsToDelete = items.Where(i => !i.IsDone);
 		await ShoppingListService.SaveItems(itemsToDelete);
 		items = new List<ShoppingListItem>();
+		isAllDone = false;
 		OnInitialized();
 
 	}
