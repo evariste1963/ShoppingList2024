@@ -18,11 +18,19 @@
 		<div class="dynDetails">
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
-					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
-						<p class="selectAllRowText">Select All</p>
-					</div>
+					<p class="selectAllRowCheckbox"><input type="checkbox" name="isdone" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+					<p class="selectAllRowText">Select All</p>
+				</div>
 
+				@if (@items.Count(item => !item.IsDone) == 1)
+				{
+					<h4 class="countItems"> (1 item to find)</h4>
+				}
+				else
+				{
 					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
+				}
+
 				</div>
 			<ul class="list">
 				@foreach (ShoppingListItem item in items)
@@ -50,6 +58,7 @@
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
 	bool isAllDone;
+	public string ItemRowIsDoneClass = "";
 
 	public async void IsAllDone()
 	{
@@ -67,7 +76,6 @@
 		await ShoppingListService.SaveItems(items);
 	}
 
-
 	protected override void OnInitialized()
 	{
 		base.OnInitialized();
@@ -78,7 +86,6 @@
 
 	async void AddItem()
 	{
-
 		if (string.IsNullOrWhiteSpace(newItem))
 			return;
 
@@ -93,12 +100,10 @@
 
 	async Task EditItem(ShoppingListItem item)
 	{
-
 		await ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
 		await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
-
 
 	public async void DeleteItem(ShoppingListItem item)
 	{
@@ -131,16 +136,14 @@
 
 	}
 
-	public string ItemRowIsDoneClass = "";
-
 	public string ItemDone(ShoppingListItem item)
 	{
-		ItemRowIsDoneClass = item.IsDone ? "item-done" : "  ";
+		ItemRowIsDoneClass = item.IsDone ? "item-done" : "";
 		ShoppingListService.SaveItems(items);
+		
 		return ItemRowIsDoneClass;
 	}
-
-
+	
 	/// <summary>
 	/// TODOs list for App
 	/// </summary>
