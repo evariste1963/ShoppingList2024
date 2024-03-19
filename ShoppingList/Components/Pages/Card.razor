@@ -65,7 +65,7 @@
 				item.IsDone = false;
 			}
 		}		
-	  await ShoppingListService.SaveItems(items);
+		await ShoppingListService.SaveItems(items);
 	}
 
 
@@ -121,24 +121,24 @@
 		OnInitialized();
 	}
 
-	void DeleteItems()
+	public async Task DeleteItems()
 	{
-		IEnumerable<ShoppingListItem> itemsToDelete = new List<ShoppingListItem>();
+		IEnumerable<ShoppingListItem> itemsToDelete =  new List<ShoppingListItem>();
 		itemsToDelete = items.Where(i => !i.IsDone);
-		ShoppingListService.SaveItems(itemsToDelete);
+		await ShoppingListService.SaveItems(itemsToDelete);
 		items = new List<ShoppingListItem>();
 		OnInitialized();
 
 	}
 
+	public string ItemRowIsDoneClass = "";
 
-	//TODO : save IsDone State -- to persost state on app close/open
 	public string ItemDone(ShoppingListItem item)
 	{
-		return item.IsDone ? "item-done" : "  ";
-		
+		ItemRowIsDoneClass = item.IsDone ? "item-done" : "  ";
+		ShoppingListService.SaveItems(items);
+		return ItemRowIsDoneClass;
 	}
-
 
 
 	/// <summary>
