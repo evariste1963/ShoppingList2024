@@ -138,6 +138,7 @@
 
 	public string ItemDone(ShoppingListItem item)
 	{
+		if (item.IsDone) isAllDone = false;
 		ItemRowIsDoneClass = item.IsDone ? "item-done" : "";
 		ShoppingListService.SaveItems(items);
 		

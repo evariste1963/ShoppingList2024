@@ -1,7 +1,7 @@
 ﻿:root {
     --bg-topcolor: rgb(255, 69, 0);
-    --primary-fontcolor: rgb(10, 10, 10);
-    --secondary-fontcolor: rgba(10, 10, 10,0.8);
+    --primary-fontcolor: rgb(16, 16, 14);
+    --secondary-fontcolor: rgb(14, 11, 11, 0.80);
     --primary-fontsize: 24px;
     --secondary-fontsize:16px;
 }
@@ -36,9 +36,9 @@ a, .btn-link {
     border-color: #1861ac;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+/*.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
+}*/
 
 .content {
     padding-top: 1.1rem;
