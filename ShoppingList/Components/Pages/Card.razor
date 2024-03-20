@@ -12,7 +12,7 @@
 		<form @onsubmit=AddItem>
 			<div class="inputField">
 				<input type="text" placeholder="what do you need?" @bind="newItem" autofocus />
-				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:2rem;"></i></button>
+				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
@@ -59,8 +59,13 @@
 	string? newItem;
 	bool isAllDone;
 	public string itemRowIsDoneClass = "";
+	public bool isChecked;
+
+
 	public async void IsAllDone()
 	{
+		isChecked = isChecked ? false : true;
+
 		foreach (ShoppingListItem item in items)
 		{
 			item.IsDone = !isAllDone ? true : false;		
@@ -70,7 +75,17 @@
 
 	public async Task ItemDone(ShoppingListItem item)
 	{
-		// if (item.IsDone) isAllDone = false;
+		if (item.IsDone && isChecked){
+			isAllDone = false;
+			isChecked = false;
+			
+		}
+		else if (!item.IsDone && isChecked)
+		{
+			
+			isAllDone = false;
+			
+		}
 		// if (items.Count(item => !item.IsDone) != items.Count && !isAllDone) isAllDone = false;
 		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
 		await ShoppingListService.SaveItems(items);
@@ -82,7 +97,6 @@
 	{
 		base.OnInitialized();
 		var itemList = ShoppingListService.LoadItems();
-		
 		items.AddRange(itemList);
 	}
 
