@@ -18,7 +18,7 @@
 		<div class="dynDetails">
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
-					<p class="selectAllRowCheckbox"><input type="checkbox" name="isdone" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+					<p class="selectAllRowCheckbox"><input type="checkbox"  unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
 					<p class="selectAllRowText">Select All</p>
 				</div>
 
@@ -38,7 +38,7 @@
 					<li class="itemRow">
 						<div class="itemDetail">
 							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" @bind="item.IsDone" /></p>
-							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item)" /></p>
+							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item) @itemRowIsDoneClass" /></p>
 						</div>
 						<div class="editAndDelBtns">
 							<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
@@ -58,22 +58,37 @@
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
 	bool isAllDone;
-	public string ItemRowIsDoneClass = "";
+	public string itemRowIsDoneClass = "";
+
+
 
 	public async void IsAllDone()
 	{
 		foreach (ShoppingListItem item in items)
 		{
-			if(!isAllDone)
-			{
-				item.IsDone = true;
-			}
-			else
-			{
-				item.IsDone = false;
-			}
-		}		
+			item.IsDone = !isAllDone ? true : false;
+
+			// if (!isAllDone)
+			// {
+			// 	item.IsDone = true;
+			// }
+			// else
+			// {
+			// 	item.IsDone = false;
+			// }
+			
+		}
 		await ShoppingListService.SaveItems(items);
+	}
+
+	public async Task ItemDone(ShoppingListItem item)
+	{
+		// if (item.IsDone) isAllDone = false;
+		// if (items.Count(item => !item.IsDone) != items.Count && !isAllDone) isAllDone = false;
+		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
+		await ShoppingListService.SaveItems(items);
+
+		itemRowIsDoneClass = itemRowIsDoneResult;
 	}
 
 	protected override void OnInitialized()
@@ -114,6 +129,7 @@
 		await ShoppingListService.SaveItems(itemToDelete);
 		items = new List<ShoppingListItem>();
 		// StateHasChanged();
+		isAllDone = false;
 		OnInitialized();
 		// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
 
@@ -136,15 +152,8 @@
 
 	}
 
-	public string ItemDone(ShoppingListItem item)
-	{
-		if (item.IsDone) isAllDone = false;
-		ItemRowIsDoneClass = item.IsDone ? "item-done" : "";
-		ShoppingListService.SaveItems(items);
-		
-		return ItemRowIsDoneClass;
-	}
-	
+
+
 	/// <summary>
 	/// TODOs list for App
 	/// </summary>
