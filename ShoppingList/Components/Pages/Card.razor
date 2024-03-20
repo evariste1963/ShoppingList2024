@@ -18,7 +18,7 @@
 		<div class="dynDetails">
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
-					<p class="selectAllRowCheckbox"><input type="checkbox"  unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
 					<p class="selectAllRowText">Select All</p>
 				</div>
 
@@ -59,24 +59,11 @@
 	string? newItem;
 	bool isAllDone;
 	public string itemRowIsDoneClass = "";
-
-
-
 	public async void IsAllDone()
 	{
 		foreach (ShoppingListItem item in items)
 		{
-			item.IsDone = !isAllDone ? true : false;
-
-			// if (!isAllDone)
-			// {
-			// 	item.IsDone = true;
-			// }
-			// else
-			// {
-			// 	item.IsDone = false;
-			// }
-			
+			item.IsDone = !isAllDone ? true : false;		
 		}
 		await ShoppingListService.SaveItems(items);
 	}
@@ -95,7 +82,7 @@
 	{
 		base.OnInitialized();
 		var itemList = ShoppingListService.LoadItems();
-
+		
 		items.AddRange(itemList);
 	}
 
