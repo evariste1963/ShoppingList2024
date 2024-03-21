@@ -19,7 +19,13 @@
 				<div class="selectAndCountRow">
 					<div class="selectAllRow">
 					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+					@if(@isAllDone){
+					<p class="selectAllRowText">Deselect All</p>
+					}
+					else
+					{
 					<p class="selectAllRowText">Select All</p>
+					}
 				</div>
 
 				@if (@items.Count(item => !item.IsDone) == 1)

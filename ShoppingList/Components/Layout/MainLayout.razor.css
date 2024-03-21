@@ -47,9 +47,10 @@ main {
 
 footer {
     color: #fff;
-    margin: 1rem auto;
+    margin: 1rem auto auto auto;
     text-align: center;
-    padding-bottom: 2rem;
+    bottom:0;
+    /*padding-bottom: 1rem;*/
 }
 
 #tag {

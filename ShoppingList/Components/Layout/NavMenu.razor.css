@@ -2,7 +2,7 @@
     appearance: none;
     cursor: pointer;
     width: 3.5rem;
-    height: 2.5rem;
+    height: 2rem;
     color: white;
     position: absolute;
     top: 0.5rem;
@@ -17,7 +17,7 @@
     }
 
 .top-row {
-    height: 3.5rem;
+    height: 2.8rem;
     background-color: rgba(0,0,0,0.4);
 }
 

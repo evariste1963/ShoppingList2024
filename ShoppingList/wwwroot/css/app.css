@@ -2,8 +2,9 @@
     --bg-topcolor: rgb(255, 69, 0);
     --primary-fontcolor: rgb(16, 16, 14);
     --secondary-fontcolor: rgb(14, 11, 11, 0.80);
-    --primary-fontsize: 22px;
-    --secondary-fontsize:16px;
+    --primary-fontsize: 20px;
+    --secondary-fontsize:14px;
+    --primary-marginwidth: 95%;
 }
 
 * {
