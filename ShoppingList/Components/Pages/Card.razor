@@ -57,7 +57,7 @@
 {
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
 	string? newItem;
-	bool isAllDone;
+	bool isAllDone = false;
 	public string itemRowIsDoneClass = "";
 	public bool isChecked;
 
@@ -68,29 +68,28 @@
 
 		foreach (ShoppingListItem item in items)
 		{
-			item.IsDone = !isAllDone ? true : false;		
+				
+			item.IsDone = isChecked ? true : false;
 		}
 		await ShoppingListService.SaveItems(items);
+	
 	}
 
 	public async Task ItemDone(ShoppingListItem item)
 	{
-		if (item.IsDone && isChecked){
-			isAllDone = false;
+		if (!item.IsDone && isChecked)
+		{
 			isChecked = false;
 			
 		}
-		else if (!item.IsDone && isChecked)
-		{
-			
-			isAllDone = false;
-			
-		}
+	
+		isAllDone = false;
 		// if (items.Count(item => !item.IsDone) != items.Count && !isAllDone) isAllDone = false;
-		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
-		await ShoppingListService.SaveItems(items);
+			var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
+			await ShoppingListService.SaveItems(items);
 
-		itemRowIsDoneClass = itemRowIsDoneResult;
+			itemRowIsDoneClass = itemRowIsDoneResult;
+		
 	}
 
 	protected override void OnInitialized()
