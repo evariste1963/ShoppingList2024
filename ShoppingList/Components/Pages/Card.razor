@@ -4,6 +4,7 @@
 
 <div class="shoppingCard">
 	<div class="headerInfo">
+		@* <img src=@image /> *@
 		<h1 class="title">
 			Shopping List
 		</h1>
@@ -47,7 +48,11 @@
 							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item) @itemRowIsDoneClass" /></p>
 						</div>
 						<div class="editAndDelBtns">
-							<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
+							@if(!item.IsDone)
+							{
+								<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
+							}
+							
 						@* <p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:24px;"></i></button></p> *@
 						</div>
 					</li>
@@ -67,6 +72,10 @@
 	public string itemRowIsDoneClass = "";
 	public bool isChecked;
 
+	Image image = new Image
+		{
+			Source = ImageSource.FromFile("shopping_trolleyimage.png")
+		};
 
 	public async void IsAllDone()
 	{
