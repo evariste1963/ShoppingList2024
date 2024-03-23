@@ -92,10 +92,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="wwwroot\images\pageicon.png" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Resources\AppIcon\appicon.svg" />
       <None Remove="Resources\AppIcon\shopping_trolleyicon.png" />
     </ItemGroup>
@@ -106,7 +102,6 @@
 
     <ItemGroup>
       <MauiImage Include="Resources\AppIcon\shopping_trolleyicon.png" />
-      <MauiImage Include="wwwroot\images\pageicon.png" />
     </ItemGroup>
 
     <ItemGroup>
