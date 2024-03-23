@@ -37,39 +37,41 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+        <PackageIcon>shopping_trolleyimage.png</PackageIcon>
+        <Title>ShoppingList</Title>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
       <AndroidPackageFormat>apk</AndroidPackageFormat>
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
-      <ApplicationDisplayVersion>1.6</ApplicationDisplayVersion>
+      <ApplicationDisplayVersion>2.2</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -91,7 +93,7 @@
 
     <ItemGroup>
       <None Remove="Resources\AppIcon\appicon.svg" />
-      <None Remove="Resources\AppIcon\shopping_trolley.png" />
+      <None Remove="Resources\AppIcon\shopping_trolleyicon.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -99,7 +101,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiImage Include="Resources\AppIcon\shopping_trolley.png" />
+      <MauiImage Include="Resources\AppIcon\shopping_trolleyicon.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -107,6 +109,13 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\Images\shopping_trolleyimage.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>
