@@ -11,17 +11,20 @@
 }
 .headerInfo {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    /*margin-bottom:12px;*/
+    width: 85%;
+    margin: 0 auto;
  }
 
 .title {
     font-size: 2rem;
     color: var(--primary-fontcolor);
+    width:100%;
     padding:0;
-    margin: 0;
+    margin: 0 60px 0 auto;
+    text-align:center;
+    /*border: 1px solid #000;*/
 }
 
 .countItems {
