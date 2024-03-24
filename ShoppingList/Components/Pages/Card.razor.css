@@ -11,11 +11,9 @@
 }
 .headerInfo {
     display: flex;
-    /*align-items:baseline;*/
     justify-content: center;
     width: 90%;
     margin: 5px auto 2px auto;
-    /*border: 1px solid #000*/
  }
 
 .title {
@@ -23,18 +21,14 @@
     color: var(--primary-fontcolor);
     width: 100%;
     padding: 0;
-    /*margin: 0 50px 0 auto;*/
     margin:5px auto 0 auto;
     text-align: center;
-    /*border: 1px solid #000;*/
 }
 
 .countItems {
     margin: auto 0;
     text-align: right;
-    
     font-size: var(--secondary-fontsize);
-    
 }
 
 
@@ -49,7 +43,6 @@
     margin: 0 auto;
     width: 100%;
     font-size: var(--primary-fontsize);
-    /*border: 1px solid #000;*/
     align-items: center;
 }
 .selectAndCountRow {
@@ -59,16 +52,12 @@
     align-items: center;
     margin: 0 auto 0.5em auto;
     color: var(--secondary-fontcolor);
-    /*border: 1px solid #000;*/
 }
 .selectAllRow {
     text-align: left;
     display: flex;
     align-items: center;
-    /*border: 1px solid #000;*/
-    
 }
-
 
 .itemRow {
     display: flex;
@@ -78,7 +67,6 @@
     width: var(--primary-marginwidth);
     padding: 0;
     margin: 0 auto;
-    /*border: 1px solid #000*/
 }
 
 .itemDetail {
@@ -88,20 +76,16 @@
     border: none;
     padding: 0;
     margin: 0;
-    /*border: 1px solid #000*/
 }
 
 
 .selectAllRowCheckbox {
     text-align: left;
     font-size: var(--primary-fontsize);
-    
-    /*border: 1px solid #000;*/
     margin: auto 0;
 }
 
 .rowCheckBox {
-    /*border: 1px solid #000;*/
     align-items: center;
     margin:auto 0;
     padding: 0;
@@ -109,12 +93,9 @@
 
 .selectAllRowText {
     font-size: var(--secondary-fontsize);
-    
-    /*border: 1px solid #000;*/
     margin: auto;
     margin-left: 5px;
 }
-
 
 form {
     width: 100%;
@@ -145,12 +126,10 @@ form {
 input[type="text"] {
     text-decoration: none !important;
     width: var(--primary-marginwidth);
-    padding: 0.5rem 1rem;
-    /*outline: 2px ridge rgb(200, 69, 0);*/
+    padding: 0.5rem;
     outline: none;
     border: 0;
     border-bottom: 2px solid var(--bg-topcolor);
-    /*border-radius: 2rem;*/
     font-size: var(--primary-fontsize);
 }
 
@@ -161,8 +140,6 @@ input[type="text"] {
 
 .editAndDelBtns {
     display: flex;
-    
-    /*border: 1px solid #000*/
 }
 
 
@@ -173,13 +150,7 @@ input[type="text"] {
     margin: auto 0;
     padding: 0;
     align-items: center;
-    /*vertical-align: middle;*/
-    /*border: 1px solid #000*/
 }
-
-/*.editBtn {
-    margin-right: 0.5rem;
-}*/
 
 .rowDel{
     margin: auto 0;
@@ -195,14 +166,10 @@ input[type="text"] {
     padding: 0;
 }
 
-
-
 .rowItem {
     width: 100%;
     margin:auto 0.5rem;
-    
     padding: 0;
-    /*border: 1px solid #000*/
 }
 
 
@@ -210,7 +177,6 @@ input[type="text"] {
     width: 100%;
     border: none;
     margin-right: 1rem;
-    /*border: 1px solid #000*/
 }
 
 .item:focus {

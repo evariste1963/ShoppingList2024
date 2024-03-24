@@ -4,11 +4,6 @@
 
 <div class="shoppingCard">
 	<div class="headerInfo">
-		
-		@* <div class="pageIcon">
-			<img src="images/pageicon1.jpg" height="40" width="40" />
-		</div> *@
-		
 		<div class ="title">
 		<h4 >
 			Shopping List
@@ -61,8 +56,6 @@
 							{
 								<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
 							}
-							
-						@* <p class="rowDel"><button class="delBtn" @onclick="@(() => DeleteItem(item))"><i class="fa fa-times fa-2x" style="font-size:24px;"></i></button></p> *@
 						</div>
 					</li>
 				}
@@ -71,8 +64,6 @@
 	</div>
 </div>
 
-
-
 @code
 {
 	List<ShoppingListItem> items = new List<ShoppingListItem>();
@@ -80,11 +71,6 @@
 	bool isAllDone = false;
 	public string itemRowIsDoneClass = "";
 	public bool isChecked;
-
-	// Image image = new Image
-	// 	{
-	// 		Source = ImageSource.FromFile("shopping_trolleyimage.png")
-	// 	};
 
 	public async void IsAllDone()
 	{
@@ -96,7 +82,6 @@
 			item.IsDone = isChecked ? true : false;
 		}
 		await ShoppingListService.SaveItems(items);
-	
 	}
 
 	public async Task ItemDone(ShoppingListItem item)
@@ -108,12 +93,10 @@
 		}
 	
 		isAllDone = false;
-		// if (items.Count(item => !item.IsDone) != items.Count && !isAllDone) isAllDone = false;
 			var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
 			await ShoppingListService.SaveItems(items);
 
 			itemRowIsDoneClass = itemRowIsDoneResult;
-		
 	}
 
 	protected override void OnInitialized()
@@ -144,20 +127,9 @@
 		await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
 
-	// public async void DeleteItem(ShoppingListItem item)
-	// {
-	// 	IEnumerable<ShoppingListItem> itemToDelete = new List<ShoppingListItem>();
-	// 	if (!item.IsDone) return;
-
-	// 	itemToDelete = items.Where(i => i.Item != item.Item);
-	// 	await ShoppingListService.SaveItems(itemToDelete);
-	// 	items = new List<ShoppingListItem>();
-	// 	// StateHasChanged();
-	// 	isAllDone = false;
-	// 	OnInitialized();
+	
 	// 	// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
 
-	// }
 
 	public void ItemsChanged()
 	{
@@ -175,24 +147,4 @@
 		OnInitialized();
 
 	}
-
-
-
-	/// <summary>
-	/// TODOs list for App
-	/// </summary>
-	///
-
-	// TODO: Colours: app colour scheme selector
-	// 				// global varibles and dynamic css classes
-	
-	// 				// global variables to main font size
-	
-	//  TODO: Cursor focus App start and after enter
-	// TODO: App ICON
-	// TODO: only update if row text has changed
-
-
-
-
 }
