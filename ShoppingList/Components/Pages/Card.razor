@@ -54,7 +54,11 @@
 						<div class="editAndDelBtns">
 							@if(!item.IsDone)
 							{
-								<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa fa-save" style="font-size:24px;"></i></button></p>
+								<p class="editBtn"><button class="editBtn" @onclick="@(() => EditItem(item))"><i class="fa-regular fa-pen-to-square" style="font-size:24px;"></i>
+
+								</button>
+
+								</p>
 							}
 						</div>
 					</li>
@@ -122,9 +126,10 @@
 
 	async Task EditItem(ShoppingListItem item)
 	{
+		item.Item = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
 		await ShoppingListService.SaveItems(items);
 		newItem = string.Empty;
-		await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
+		// await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
 
 	
