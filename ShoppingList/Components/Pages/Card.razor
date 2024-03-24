@@ -49,7 +49,7 @@
 					<li class="itemRow">
 						<div class="itemDetail">
 							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" @bind="item.IsDone" /></p>
-							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item) @itemRowIsDoneClass" /></p>
+							<p class="rowItem @ItemDone(item)"><input @bind="item.Item" class="item @ItemDone(item) @itemRowIsDoneClass" disabled="disabled" /></p>
 						</div>
 						<div class="editAndDelBtns">
 							@if(!item.IsDone)
@@ -82,7 +82,7 @@
 
 		foreach (ShoppingListItem item in items)
 		{
-				
+
 			item.IsDone = isChecked ? true : false;
 		}
 		await ShoppingListService.SaveItems(items);
@@ -93,14 +93,14 @@
 		if (!item.IsDone && isChecked)
 		{
 			isChecked = false;
-			
-		}
-	
-		isAllDone = false;
-			var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
-			await ShoppingListService.SaveItems(items);
 
-			itemRowIsDoneClass = itemRowIsDoneResult;
+		}
+
+		isAllDone = false;
+		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
+		await ShoppingListService.SaveItems(items);
+
+		itemRowIsDoneClass = itemRowIsDoneResult;
 	}
 
 	protected override void OnInitialized()
@@ -126,9 +126,14 @@
 
 	async Task EditItem(ShoppingListItem item)
 	{
-		item.Item = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
-		await ShoppingListService.SaveItems(items);
-		newItem = string.Empty;
+		string result = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
+		if(result is not null)
+		{
+			item.Item = result;
+			await ShoppingListService.SaveItems(items);
+		}
+		
+		// newItem = string.Empty;
 		// await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
 
