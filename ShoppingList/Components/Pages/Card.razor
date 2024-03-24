@@ -5,20 +5,23 @@
 <div class="shoppingCard">
 	<div class="headerInfo">
 		
-		<div class="pageIcon">
-			<img src="images/pageicon1.jpg" height="50" width="50" />
-		</div>
+		@* <div class="pageIcon">
+			<img src="images/pageicon1.jpg" height="40" width="40" />
+		</div> *@
 		
 		<div class ="title">
-		<h1 >
+		<h4 >
 			Shopping List
-		</h1>
+		</h4>
 		</div>
 	</div>
 	<div>
 		<form @onsubmit=AddItem>
 			<div class="inputField">
-				<input type="text" placeholder="what do you need?" @bind="newItem" autofocus />
+				<div class="pageIcon">
+					<img src="images/pageicon1.jpg" height="50" width="50" />
+				</div>
+				<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />
 				<button class="delBtn" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
