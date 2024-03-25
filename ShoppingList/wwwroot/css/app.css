@@ -1,9 +1,11 @@
 ﻿:root {
-    --bg-topcolor: rgb(255, 69, 0);
+    /* --bg-topcolor: rgb(255, 69, 0);*/
+    --bg-topcolor: rgb(52, 85, 207);
     --primary-fontcolor: rgb(16, 16, 14);
     --secondary-fontcolor: rgb(14, 11, 11, 0.80);
+    --strikethrough-color: rgba(52, 85, 207, 0.8);
     --primary-fontsize: 20px;
-    --secondary-fontsize:14px;
+    --secondary-fontsize: 14px;
     --primary-marginwidth: 91%;
 }
 
