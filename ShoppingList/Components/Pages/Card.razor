@@ -17,7 +17,7 @@
 					<img src="images/pageicon1.jpg" height="50" width="50" />
 				</div>
 				<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />
-				<button class="delBtn @delFlag" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
+				<button class="delBtn  @(anyIsDone ? "delFlagColor" : "")" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
@@ -102,13 +102,19 @@
 		isAllDone = false;
 		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
 
-		anyIsDone = items.Any(i => i.IsDone);
-		string delFlagResult = anyIsDone ? "delFlagColor" : "";
+		await HandleAnyIsDone();
+		// anyIsDone = items.Any(i => i.IsDone);
+		// string delFlagResult = anyIsDone ? "delFlagColor" : "";
 
 		await ShoppingListService.SaveItems(items);
 
 		itemRowIsDoneClass = itemRowIsDoneResult;
-		delFlag = delFlagResult;
+		// delFlag = delFlagResult;		
+	}
+
+	async Task HandleAnyIsDone()
+	{
+		anyIsDone = items.Any(i => i.IsDone);
 	}
 
 	protected override void OnInitialized()
