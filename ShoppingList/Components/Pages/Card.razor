@@ -17,7 +17,7 @@
 					<img src="images/pageicon1.jpg" height="50" width="50" />
 				</div>
 				<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />
-				<button class="delBtn  @(anyIsDone ? "delFlagColor" : "")" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
+				<button class="delBtn  @(items.Any(i => i.IsDone) ? "delFlagColor" : "")" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
@@ -102,7 +102,7 @@
 		isAllDone = false;
 		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
 
-		await HandleAnyIsDone();
+		// await HandleAnyIsDone();
 		// anyIsDone = items.Any(i => i.IsDone);
 		// string delFlagResult = anyIsDone ? "delFlagColor" : "";
 
@@ -112,10 +112,10 @@
 		// delFlag = delFlagResult;		
 	}
 
-	async Task HandleAnyIsDone()
-	{
-		anyIsDone = items.Any(i => i.IsDone);
-	}
+	// async Task HandleAnyIsDone()
+	// {
+	// 	anyIsDone = items.Any(i => i.IsDone);
+	// }
 
 	protected override void OnInitialized()
 	{
