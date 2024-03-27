@@ -139,14 +139,22 @@ input[type="text"] {
 .delBtn, .editBtn {
     border: none;
     background: none;
-    color: var(--bg-topcolor);
-    margin: auto 0;
+     margin: auto 0;
     padding: 0;
     align-items: center;
+}
+.editBtn {
+    color: var(--bg-topcolor);
+}
+
+.delBtn {
+    color: #888;
+    cursor:none;
 }
 
 .delFlagColor {
     color: darkred;
+    cursor: pointer;
 }
 
 .rowDel{
