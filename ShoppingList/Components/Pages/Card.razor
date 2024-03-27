@@ -145,29 +145,30 @@
 			item.Item = result;
 			await ShoppingListService.SaveItems(items);
 		}
-		
+
 		// newItem = string.Empty;
 		// await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
 
-	
+
 	// 	// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
 
 
-	public void ItemsChanged()
-	{
-		items = ShoppingListService.LoadItems().ToList();
-		OnInitialized();
-	}
+	// public void ItemsChanged()
+	// {
+	// 	items = ShoppingListService.LoadItems().ToList();
+	// 	OnInitialized();
+	// }
 
 	public async Task DeleteItems()
 	{
-		IEnumerable<ShoppingListItem> itemsToDelete =  new List<ShoppingListItem>();
-		itemsToDelete = items.Where(i => !i.IsDone);
-		await ShoppingListService.SaveItems(itemsToDelete);
+		IEnumerable<ShoppingListItem> itemsNotToDelete =  new List<ShoppingListItem>();
+		itemsNotToDelete = items.Where(i => !i.IsDone);
+		if (itemsNotToDelete.Count() == items.Count)
+			return;
+		await ShoppingListService.SaveItems(itemsNotToDelete);
 		items = new List<ShoppingListItem>();
 		isAllDone = false;
 		OnInitialized();
-
 	}
 }
