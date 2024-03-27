@@ -9,16 +9,13 @@
     color: #222;
     box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.5);
 }
+
 .headerInfo {
     display: flex;
     justify-content: center;
     width: 90%;
     margin: 5px auto 2px auto;
  }
-
-.pageIcon{
-    /*border: 1px solid #000*/
-}
 
 .title {
     font-size: 5vw;
@@ -34,7 +31,6 @@
     text-align: right;
     font-size: var(--secondary-fontsize);
 }
-
 
 .shoppingCard .headerInfo h1 {
     opacity: 0.9;
@@ -106,12 +102,6 @@ form {
     padding-bottom: 0.5rem;
 }
 
-/*.shoppingCard i {
-    margin-left: 10px;
-    font-size: 1.25rem;
-    color: var(--bg-topcolor);
-}*/
-
 .inputField {
     display: flex;
     text-align: center;
@@ -172,13 +162,6 @@ input[type="text"] {
     justify-content: left;
     padding: 0;
 }
-
-/*.rowItem {
-    width: 100%;
-    margin:auto 0.5rem;
-    padding: 0;
-}*/
-
 
 .item {
     width: 100%;
