@@ -75,8 +75,6 @@
 	bool isAllDone = false;
 	public string itemRowIsDoneClass = "";
 	public bool isChecked;
-	// public bool anyIsDone;
-	// string delFlag = "";
 
 	public async void IsAllDone()
 	{
@@ -101,20 +99,10 @@
 		isAllDone = false;
 		var itemRowIsDoneResult = item.IsDone ? "item-done" : "";
 
-		// await HandleAnyIsDone();
-		// anyIsDone = items.Any(i => i.IsDone);
-		// string delFlagResult = anyIsDone ? "delFlagColor" : "";
-
 		await ShoppingListService.SaveItems(items);
 
 		itemRowIsDoneClass = itemRowIsDoneResult;
-		// delFlag = delFlagResult;		
 	}
-
-	// async Task HandleAnyIsDone()
-	// {
-	// 	anyIsDone = items.Any(i => i.IsDone);
-	// }
 
 	protected override void OnInitialized()
 	{
@@ -145,20 +133,7 @@
 			item.Item = result;
 			await ShoppingListService.SaveItems(items);
 		}
-
-		// newItem = string.Empty;
-		// await Application.Current.MainPage.DisplayAlert("Success", "Item updated", "OK");
 	}
-
-
-	// 	// https://www.telerik.com/blogs/blazor-basics-creating-todo-app-using-blazor-server#:~:text=Removing%20a%20Todo%20Item&text=First%2C%20let's%20add%20a%20Delete%20method%20to%20the%20ITodoService%20interface.&text=Next%2C%20we%20need%20to%20implement%20it%20in%20the%20TodoService%20class.&text=C%23-,In%20the%20Index.,use%20in%20the%20component's%20template.
-
-
-	// public void ItemsChanged()
-	// {
-	// 	items = ShoppingListService.LoadItems().ToList();
-	// 	OnInitialized();
-	// }
 
 	public async Task DeleteItems()
 	{
