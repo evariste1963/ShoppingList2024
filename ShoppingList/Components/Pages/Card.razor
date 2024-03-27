@@ -48,7 +48,9 @@
 				{
 					<li class="itemRow">
 						<div class="itemDetail">
-							<p class="rowCheckBox"><input type="checkbox" class="form-check-input" @bind="item.IsDone" /></p>
+							<p class="rowCheckBox">
+								<input type="checkbox" class="form-check-input" @bind="item.IsDone" />
+							</p>
 							<a class="item @ItemDone(item) @itemRowIsDoneClass">@item.Item</a>							
 						</div>
 						<div class="editAndDelBtns">
