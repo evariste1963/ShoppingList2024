@@ -147,9 +147,14 @@ input[type="text"] {
     color: var(--bg-topcolor);
 }
 
+.editColourFlag {
+    color: #888;
+    cursor: none;
+}
+
 .delBtn {
     color: #888;
-    cursor:none;
+    cursor: none;
 }
 
 .delFlagColor {

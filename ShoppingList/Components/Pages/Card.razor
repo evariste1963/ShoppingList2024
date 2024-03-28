@@ -16,9 +16,7 @@
 			<div class="inputField">
 				
 				<div class="pageIcon">
-					@* <Animate Animation="Animations.ZoomIn" Duration="TimeSpan.FromSeconds(0.75)" Delay="TimeSpan.FromSeconds(0.2)"> *@
 					<img src="images/pageicon1.jpg" height="50" width="50" />
-					@* </Animate> *@
 				</div>
 				<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />
 				<button class="delBtn  @(items.Any(i => i.IsDone) ? "delFlagColor" : "")" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
@@ -58,14 +56,9 @@
 							<a class="item @ItemDone(item) @itemRowIsDoneClass">@item.Item</a>							
 						</div>
 						<div class="editAndDelBtns">
-							@if(!item.IsDone)
-							{
-								<p class="editBtn">
-									<button class="editBtn" @onclick="@(() => EditItem(item))">
-										<i class="fa-regular fa-pen-to-square" style="font-size:24px;"></i>
-									</button>
-								</p>
-							}
+							<button class="editBtn @(item.IsDone ? "editColourFlag" : "")" @onclick="@(() => EditItem(item))">
+								<i class="fa-regular fa-pen-to-square" style="font-size:24px;"></i>
+							</button>
 						</div>
 					</li>
 				}
@@ -133,12 +126,17 @@
 
 	async Task EditItem(ShoppingListItem item)
 	{
-		string result = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
-		if(result is not null)
-		{
-			item.Item = result;
-			await ShoppingListService.SaveItems(items);
+		if(!item.IsDone){
+			string result = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
+
+			if (result is not null)
+			{
+				item.Item = result;
+				await ShoppingListService.SaveItems(items);
+			}
+
 		}
+		
 	}
 
 	public async Task DeleteItems()
