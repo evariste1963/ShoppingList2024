@@ -1,5 +1,9 @@
 ﻿@page "/"
 
+@using BlazorAnimate
+
 <div >
+	<Animate Animation="Animations.ZoomIn" Duration="TimeSpan.FromSeconds(1)" Delay="TimeSpan.FromSeconds(0.2)">
 <Card />
+</Animate>
 </div>
