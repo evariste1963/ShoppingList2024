@@ -19,7 +19,7 @@
 					<img src="images/pageicon1.jpg" height="50" width="50" />
 				</div>
 				<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />
-				<button class="delBtn  @(items.Any(i => i.IsDone) ? "delFlagColor" : "")" type="reset" @onclick="DeleteItems"><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
+				<button class="delBtn" type="reset" @onclick="DeleteItems" disabled=@items.All(i => !i.IsDone)><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
@@ -56,7 +56,7 @@
 							<a class="item @ItemDone(item) @itemRowIsDoneClass">@item.Item</a>							
 						</div>
 						<div class="editAndDelBtns">
-							<button class="editBtn @(item.IsDone ? "editColourFlag" : "")" @onclick="@(() => EditItem(item))">
+							<button class="editBtn"  @onclick="@(() => EditItem(item))" disabled=@item.IsDone>
 								<i class="fa-regular fa-pen-to-square" style="font-size:24px;"></i>
 							</button>
 						</div>
@@ -126,7 +126,12 @@
 
 	async Task EditItem(ShoppingListItem item)
 	{
-		if(!item.IsDone){
+		if (item.IsDone)
+		{
+			return;
+		}
+		else
+		{
 			string result = await Application.Current.MainPage.DisplayPromptAsync("Edit Item", "", initialValue: item.Item, maxLength: 100, keyboard: Keyboard.Default);
 
 			if (result is not null)

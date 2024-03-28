@@ -147,19 +147,14 @@ input[type="text"] {
     color: var(--bg-topcolor);
 }
 
-.editColourFlag {
-    color: #888;
-    cursor: none;
-}
-
 .delBtn {
-    color: #888;
-    cursor: none;
-}
-
-.delFlagColor {
     color: darkred;
     cursor: pointer;
+}
+
+button:disabled {
+    color: #888;
+    cursor: none;
 }
 
 .rowDel{
@@ -196,6 +191,7 @@ input[type="text"] {
 
 .form-check-input {
     border-color: var(--bg-topcolor);
+    cursor: pointer;
 }
 
 
