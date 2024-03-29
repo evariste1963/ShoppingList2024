@@ -20,23 +20,28 @@
 				</div>
 
 				@if(items.Count < 1)
-					{<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus />}
+				{ 
+					<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus / >
+				}
 				else
-					{<input type="text" placeholder="what else do you need ...?" @bind="newItem" autofocus />}
+				{ 
+					<input type="text" placeholder="what else do you need ...?" @bind="newItem" autofocus /> 
+				}
 				
 				<button class="delBtn" type="reset" @onclick="DeleteItems" disabled=@items.All(i => !i.IsDone)><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
 		</form>
 		<div class="dynDetails">
-				<div class="selectAndCountRow">
-					<div class="selectAllRow">
+			<div class="selectAndCountRow">
+				<div class="selectAllRow">
 					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+
 					@if(@isAllDone){
-					<p class="selectAllRowText">Deselect All</p>
+						<p class="selectAllRowText">Deselect All</p>
 					}
 					else
 					{
-					<p class="selectAllRowText">Select All</p>
+						<p class="selectAllRowText">Select All</p>
 					}
 				</div>
 
@@ -49,7 +54,7 @@
 					<h4 class="countItems">(@items.Count(item => !item.IsDone) items to find)</h4>
 				}
 
-				</div>
+			</div>
 			<ul class="list">
 				@foreach (ShoppingListItem item in items)
 				{
