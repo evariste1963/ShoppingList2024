@@ -57,6 +57,7 @@
 			</div>
 			<ul class="list">
 				@foreach (ShoppingListItem item in items)
+				@* @foreach (ShoppingListItem item in items.OrderBy(x => x.Order)) --- only relevant if you want to maintain the original list order on reloading app*@ 
 				{
 					<li class="itemRow">
 						<div class="itemDetail">
@@ -127,6 +128,7 @@
 
 		items.Add(new ShoppingListItem
 			{
+				Order = items.Count +1,
 				Item = newItem
 			});
 
