@@ -158,6 +158,7 @@
 		await ShoppingListService.SaveItems(itemsNotToDelete);
 		items = new List<ShoppingListItem>();
 		isAllDone = false;
-		OnInitialized();
+		var itemList = ShoppingListService.LoadItems();
+		items.AddRange(itemList);
 	}
 }
