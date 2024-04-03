@@ -19,14 +19,7 @@
 					<img src="images/pageicon1.jpg" height="50" width="50" />
 				</div>
 
-				@if(items.Count < 1)
-				{ 
-					<input type="text" placeholder="what do you need ...?" @bind="newItem" autofocus / >
-				}
-				else
-				{ 
-					<input type="text" placeholder="what else do you need ...?" @bind="newItem" autofocus /> 
-				}
+				<input type="text" placeholder=@(items.Count == 0 ? "what do you need ...?" : "what else do you need ...?") @bind="newItem" autofocus / >
 				
 				<button class="delBtn" type="reset" @onclick="DeleteItems" disabled=@items.All(i => !i.IsDone)><i class="fas fa-trash-alt" style="font-size:24px"></i></button>
 			</div>
