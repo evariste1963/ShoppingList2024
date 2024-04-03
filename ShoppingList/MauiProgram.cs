@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Plk.Blazor.DragDrop;
 using ShoppingList.Data;
 
 namespace ShoppingList
@@ -22,7 +23,8 @@ namespace ShoppingList
     		builder.Logging.AddDebug();
 #endif
             builder.Services.AddSingleton<ShoppingListService>();
-            return builder.Build();
+            builder.Services.AddBlazorDragDrop();
+          	return builder.Build();
         }
     }
 }
