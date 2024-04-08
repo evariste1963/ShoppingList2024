@@ -146,19 +146,14 @@
 			}
 
 		}
-		
+
 	}
 
 	public async Task DeleteItems()
 	{
-		IEnumerable<ShoppingListItem> itemsNotToDelete =  new List<ShoppingListItem>();
-		itemsNotToDelete = items.Where(i => !i.IsDone);
-		if (itemsNotToDelete.Count() == items.Count)
-			return;
-		await ShoppingListService.SaveItems(itemsNotToDelete);
-		items = new List<ShoppingListItem>();
+		items.RemoveAll(i => i.IsDone);
+		await ShoppingListService.SaveItems(items);
 		isAllDone = false;
-		var itemList = ShoppingListService.LoadItems();
-		items.AddRange(itemList);
+		StateHasChanged();
 	}
 }
