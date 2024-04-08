@@ -27,7 +27,7 @@
 		<div class="dynDetails">
 			<div class="selectAndCountRow">
 				<div class="selectAllRow">
-					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" /></p>
+					<p class="selectAllRowCheckbox"><input type="checkbox" unchecked @bind="isAllDone" @onclick="IsAllDone" class="form-check-input" disabled=@(!items.Any()) /></p>
 
 					@if(@isAllDone){
 						<p class="selectAllRowText">Deselect All</p>
