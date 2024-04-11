@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
 using ShoppingList.Data;
 
 namespace ShoppingList
@@ -12,7 +13,8 @@ namespace ShoppingList
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("RadiantKingdom-mL5eV.ttf", "Radiant");
+                //fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
             builder.Services.AddMauiBlazorWebView();

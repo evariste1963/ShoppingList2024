@@ -110,6 +110,7 @@
     <ItemGroup>
       <None Remove="Resources\AppIcon\appicon.svg" />
       <None Remove="Resources\AppIcon\shopping_trolleyicon.png" />
+      <None Remove="Resources\Fonts\RadiantKingdom-mL5eV.ttf" />
     </ItemGroup>
 
     <ItemGroup>
