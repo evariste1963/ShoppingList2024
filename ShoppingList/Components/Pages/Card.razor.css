@@ -21,7 +21,7 @@
     font-size: 5vw;
     color: var(--primary-fontcolor);
     width: 100%;
-    padding: 5px 0 0 0;
+    padding: 1vh 0 0 0;
     margin: 5px auto 0 auto;
     text-align: center;
 }
@@ -170,7 +170,7 @@ button:disabled {
     justify-content: left;
     padding: 0;
 }
-
+ 
 .item {
     width: 100%;
     border: none;
